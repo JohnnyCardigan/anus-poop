@@ -1,89 +1,6 @@
-#include <string>
 #include <iostream>
 using namespace std;
-
-/*string passwords[] = {"abc","def","ghi","jkl","mno"};
-int main() {
-//    cout<<passwords[0]<<endl<<passwords[1]<<endl<<passwords[2]<<endl<<passwords[3]<<endl<<passwords[4];
-/*int passx=0;
-    while (passx<5){
-        cout<<passwords[passx]<<endl;
-        passx+=1;
-        
-    }*/
-/*    for(int passx=0;passx<5;passx++){
-        cout<<passwords[passx]<<endl;
-    }*/
-/*    
-string passwords[15];
-int main(){
-    for(int passx=0;passx<6;passx++){
-        passwords[passx]="Repeat me";
-    }
-       for(int passx=1;passx<6;){
-        passwords[passx]="No, you can't make me!";
-        passx+=2;
-    }
-     for(int passx=0;passx<15;passx++){
-        cout<<passwords[passx]<<endl;
-    }
- }  */ 
-/*
-string passwords[6];
-int repeatme(){
-        for(int passx=0;passx<6;passx++){
-        passwords[passx]="Repeat me";
-    }
-       for(int passx=1;passx<6;){
-        passwords[passx]="No, you can't make me!";
-        passx+=2;
-    }
-     for(int passx=0;passx<6;passx++){
-        cout<<passwords[passx]<<endl;
-    }
-}
-int main(){
-    repeatme();
-}
-*/
-/*
-string passwords[5];
-string fromterm;
-int terminalinput(){
-   for(int passx=0;passx<5;passx++){
-        cin>>fromterm;
-        passwords[passx]=fromterm;
-    }
-    cout<<endl;
-    for(int passx=0;passx<5;passx++){
-        cout<<"Password: "<<passwords[passx]<<endl;
-    }
-}
-
-int main(){
-    terminalinput();
-}*/
-/*
-int numpass=5;
-string passwords[100];
-string fromterm;
-void terminalinput(){
-    for(int passx=0;passx<numpass;passx++){
-        cin>>fromterm;
-        passwords[passx]=fromterm;
-    }
-}
-void printterm(string arr[], int size){
-    for(int x=0;x<size;x++){
-        cout<<"Password: "<<arr[x]<<endl;
-    }
-}
-
-int main(){
-    terminalinput();
-    cout<<"===================="<<endl;
-    printterm(passwords,numpass);
-}*/
+//
 
 
 //=============GLOBAL VARIABLES=============================
@@ -165,7 +82,7 @@ void firstattempt()
             cout<<"First choice is password <"<<passwords[primepass-1]<<">"<<endl;
             primarypass=passwords[primepass-1];
             cout<<"How many letters are correct?\n";
-            cin>>primepass;
+            cin>>simfirst;
     }
 }
 //--------QA for guess assignment--------------------------------------------------
@@ -181,6 +98,25 @@ void checkpass()
     cout<<"with ("<<primepass<<") correct letters.\n";
     }
 }
+//------password comparison------------------
+int firstwave (string a, string arr[], int simpass[])
+{
+    int size = a.size();
+    for(int y=0; y<numpass;y++)
+    {
+        int sim=0;
+        for(int x=0; x< size;x++)
+        {
+            if(a[x]==arr[y][x])
+            {
+                sim+=1;
+            }
+        }
+        simpass[y] = sim;
+    }
+}
+
+
 //---------password comparison-------------------------------------------------
 /*
 int similarity(string a, string b)
